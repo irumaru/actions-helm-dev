@@ -26,8 +26,8 @@ jobs:
       working-directory: ./${{ matrix.helmfile-root }}/helmfile
       run: helmfile template > ../sync/helmfile-template.yaml
       with:
-        helmfile-version: v0.169.1
-        helm-version: v3.16.2
+        helmfile-version: latest
+        helm-version: latest
     # commit
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
