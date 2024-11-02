@@ -24,7 +24,7 @@ jobs:
     # helmfile templateを実行
     - name: Build helmfile
       working-directory: ./${{ matrix.helmfile-root }}/helmfile
-      run: helmfile template > ../sync/helmfile-template.yaml
+      run: helmfile template
     # - name: Build helmfile
     #   uses: helmfile/helmfile-action@v1.9.4
     #   with:
