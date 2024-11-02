@@ -1,0 +1,33 @@
+name: Build Helmfile
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+env:
+  helmfile-build-list: [cert-manager]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    strategy:
+      matrix:
+        helmfile-root: ${{ env.helmfile-build-list }}
+    steps:
+    # PullRequestのbranchをcheckout
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        ref: ${{ github.head_ref }}
+    # helmfile templateを実行
+    - name: Build helmfile
+      uses: helmfile/helmfile-action@v1
+      with:
+        helmfile-workdirectory: ${{ matrix.helmfile-root }}/helmfile
+        helmfile-args: template > ../helmfile-template.yaml
+    # commit
+    - uses: stefanzweifel/git-auto-commit-action@v5
+      with:
+        commit_message: "Update helmfile template"
