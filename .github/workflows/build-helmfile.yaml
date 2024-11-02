@@ -23,12 +23,12 @@ jobs:
       uses: mamezou-tech/setup-helmfile@v2.0.0
     # helmfile templateを実行
     - name: Build helmfile
-      working-directory: ${{ matrix.helmfile-root }}/helmfile
+      working-directory: ./${{ matrix.helmfile-root }}/helmfile
       run: helmfile template > ../sync/helmfile-template.yaml
     # - name: Build helmfile
     #   uses: helmfile/helmfile-action@v1.9.4
     #   with:
-    #     helmfile-workdirectory: ${{ matrix.helmfile-root }}/helmfile
+    #     helmfile-workdirectory: ./${{ matrix.helmfile-root }}/helmfile
     #     helmfile-args: template > ../sync/helmfile-template.yaml
     # commit
     - uses: stefanzweifel/git-auto-commit-action@v5
