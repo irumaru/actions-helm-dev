@@ -20,7 +20,7 @@ jobs:
         ref: ${{ github.head_ref }}
     # helmfile templateを実行
     - name: Build helmfile
-      uses: helmfile/helmfile-action@v1
+      uses: helmfile/helmfile-action@v1.9.4
       with:
         helmfile-workdirectory: ${{ matrix.helmfile-root }}/helmfile
         helmfile-args: template > ../helmfile-template.yaml
