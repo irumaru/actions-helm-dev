@@ -6,7 +6,7 @@ repositories:
 # リリースに必要な設定値を指定する
 releases:
   - name: cert-manager
-    namespace: cert-manager
+    namespace: cert-manager2
     chart: jetstack/cert-manager
     version: v1.13.3
     values:
