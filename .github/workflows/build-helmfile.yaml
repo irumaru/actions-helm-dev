@@ -18,18 +18,18 @@ jobs:
       uses: actions/checkout@v4
       with:
         ref: ${{ github.head_ref }}
-    # helmfileをセットアップ
-    - name: Setup helmfile
-      uses: mamezou-tech/setup-helmfile@v2.0.0
-    # helmfile templateを実行
-    - name: Build helmfile
-      working-directory: ${{ matrix.helmfile-root }}/helmfile
-      run: helmfile template > ../sync/helmfile-template.yaml
+    # # helmfileをセットアップ
+    # - name: Setup helmfile
+    #   uses: mamezou-tech/setup-helmfile@v2.0.0
+    # # helmfile templateを実行
     # - name: Build helmfile
-    #   uses: helmfile/helmfile-action@v1.9.4
-    #   with:
-    #     helmfile-workdirectory: ${{ matrix.helmfile-root }}/helmfile
-    #     helmfile-args: template > ../helmfile-template.yaml
+    #   working-directory: ${{ matrix.helmfile-root }}/helmfile
+    #   run: helmfile template > ../sync/helmfile-template.yaml
+    - name: Build helmfile
+      uses: helmfile/helmfile-action@v1.9.4
+      with:
+        helmfile-workdirectory: ${{ matrix.helmfile-root }}/helmfile
+        helmfile-args: template > ../sync/helmfile-template.yaml
     # commit
     - uses: stefanzweifel/git-auto-commit-action@v5
       with:
