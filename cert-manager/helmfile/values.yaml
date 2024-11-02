@@ -1,0 +1,4 @@
+# ---- info ----
+# support version: https://cert-manager.io/docs/installation/supported-releases/
+
+installCRDs: true

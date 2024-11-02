@@ -1,0 +1,13 @@
+# 使用するHelmレポジトリを指定する
+repositories:
+  - name: jetstack
+    url: https://charts.jetstack.io
+
+# リリースに必要な設定値を指定する
+releases:
+  - name: cert-manager
+    namespace: cert-manager2
+    chart: jetstack/cert-manager
+    version: v1.13.3
+    values:
+      - "./values.yaml"
