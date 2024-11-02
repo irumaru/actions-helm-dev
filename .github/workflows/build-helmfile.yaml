@@ -4,9 +4,6 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
 
-env:
-  HELMFILE_BUILD_LIST: [cert-manager]
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,7 +11,7 @@ jobs:
       contents: write
     strategy:
       matrix:
-        helmfile-root: ${{ env.HELMFILE_BUILD_LIST }}
+        helmfile-root: [cert-manager]
     steps:
     # PullRequestのbranchをcheckout
     - name: Checkout repository
