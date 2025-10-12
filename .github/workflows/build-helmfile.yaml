@@ -29,6 +29,6 @@ jobs:
       working-directory: ./${{ matrix.helmfile-root }}/helmfile
       run: helmfile template > ../sync/helmfile-template.yaml
     # commit
-    - uses: stefanzweifel/git-auto-commit-action@v5
+    - uses: stefanzweifel/git-auto-commit-action@v7
       with:
         commit_message: "Update helmfile template"
