@@ -20,7 +20,7 @@ jobs:
         ref: ${{ github.head_ref }}
     # helmfileをセットアップ
     - name: Setup helmfile
-      uses: mamezou-tech/setup-helmfile@v2.0.0
+      uses: mamezou-tech/setup-helmfile@v2.2.0
       with:
         helmfile-version: v0.169.1
         helm-version: v3.16.2
